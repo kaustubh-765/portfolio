@@ -5,8 +5,11 @@ import { TextAnimator } from '../animations/TextAnimator';
 import { ScrollReveal } from '../animations/ScrollReveal';
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 import Image from 'next/image';
+import { useTheme } from '@/lib/ThemeContext';
 
 export function Hero() {
+  const { isDark } = useTheme();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -17,12 +20,14 @@ export function Hero() {
             transition={{ duration: 0.8 }}
             className="mb-6"
           >
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full text-sm font-medium text-blue-400 border border-blue-500/20">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full text-sm font-medium text-blue-500 border border-blue-500/20">
               Associate Software Engineer
             </span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${
+            isDark ? 'text-white' : 'text-slate-900'
+          }`}>
             <TextAnimator
               text="Building amazing"
               className="block"
@@ -30,13 +35,15 @@ export function Hero() {
             />
             <TextAnimator
               text="digital experiences"
-              className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
               delay={0.4}
             />
           </h1>
 
           <ScrollReveal delay={0.6}>
-            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-xl">
+            <p className={`text-lg md:text-xl mb-8 max-w-xl ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}>
               Full-stack developer with 2 years of experience creating scalable web 
               applications and crafting elegant solutions to complex problems.
             </p>
@@ -53,7 +60,11 @@ export function Hero() {
               </a>
               <a
                 href="#projects"
-                className="px-6 py-3 border border-gray-700 text-gray-300 text-sm font-medium rounded-lg hover:border-blue-500 hover:text-white transition-all hover:scale-105"
+                className={`px-6 py-3 border text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                  isDark 
+                    ? 'border-gray-700 text-gray-300 hover:border-blue-500 hover:text-white' 
+                    : 'border-gray-300 text-gray-700 hover:border-blue-500 hover:text-slate-900'
+                }`}
               >
                 View projects
               </a>
@@ -70,7 +81,11 @@ export function Hero() {
                 <motion.a
                   key={label}
                   href={href}
-                  className="p-3 bg-slate-800/50 rounded-lg text-gray-400 hover:text-white hover:bg-slate-700/50 transition-all border border-slate-700/50 hover:border-blue-500/50"
+                  className={`p-3 rounded-lg transition-all border ${
+                    isDark 
+                      ? 'bg-slate-800/50 text-gray-400 hover:text-white hover:bg-slate-700/50 border-slate-700/50 hover:border-blue-500/50' 
+                      : 'bg-white/50 text-gray-600 hover:text-slate-900 hover:bg-white border-gray-200 hover:border-blue-500'
+                  }`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   target="_blank"
@@ -105,7 +120,7 @@ export function Hero() {
               alt="Developer illustration"
               fill
               className="object-contain"
-              style={{ filter: 'brightness(0) invert(1) opacity(0.85)' }}
+              style={{ filter: isDark ? 'brightness(0) invert(1) opacity(0.85)' : 'opacity(0.9)' }}
               priority
             />
           </motion.div>
@@ -117,7 +132,9 @@ export function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <a href="#about" className="text-gray-500 hover:text-white transition-colors">
+        <a href="#about" className={`transition-colors ${
+          isDark ? 'text-gray-500 hover:text-white' : 'text-gray-400 hover:text-slate-900'
+        }`}>
           <ArrowDown size={24} />
         </a>
       </motion.div>

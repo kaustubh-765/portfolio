@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useCallback } from 'react';
+import { useTheme } from '@/lib/ThemeContext';
 
 interface DoodleParticlesProps {
   className?: string;
@@ -24,8 +25,8 @@ export function DoodleParticles({
     vy: number;
     radius: number;
     opacity: number;
-    color: string;
   }[]>([]);
+  const { isDark } = useTheme();
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     mousePos.current = { x: e.clientX, y: e.clientY };
@@ -51,7 +52,6 @@ export function DoodleParticles({
         vy: (Math.random() - 0.5) * 0.3,
         radius: Math.random() * 1.5 + 0.5,
         opacity: Math.random() * 0.3 + 0.1,
-        color: `hsl(${Math.random() * 60 + 200}, 70%, 60%)`,
       }));
     };
 
@@ -64,19 +64,21 @@ export function DoodleParticles({
     let animationFrameId: number;
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.05)';
+      const bgColor = isDark ? 'rgba(15, 23, 42, 0.08)' : 'rgba(248, 250, 252, 0.08)';
+      ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      const particleColor = isDark 
+        ? { r: 100, g: 126, b: 234 }
+        : { r: 59, g: 130, b: 246 };
+
       particles.current.forEach((particle, i) => {
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Boundary collision
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-        // Mouse interaction
         const dx = mousePos.current.x - particle.x;
         const dy = mousePos.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -87,13 +89,12 @@ export function DoodleParticles({
           particle.y -= dy * force * 0.02;
         }
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 126, 234, ${particle.opacity})`;
+        const particleOpacity = isDark ? particle.opacity : particle.opacity * 1.5;
+        ctx.fillStyle = `rgba(${particleColor.r}, ${particleColor.g}, ${particleColor.b}, ${particleOpacity})`;
         ctx.fill();
 
-        // Draw connections
         for (let j = i + 1; j < particles.current.length; j++) {
           const other = particles.current[j];
           const dx2 = particle.x - other.x;
@@ -104,7 +105,8 @@ export function DoodleParticles({
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(other.x, other.y);
-            ctx.strokeStyle = `rgba(100, 126, 234, ${0.1 * (1 - dist2 / connectionDistance)})`;
+            const lineOpacity = isDark ? 0.1 * (1 - dist2 / connectionDistance) : 0.15 * (1 - dist2 / connectionDistance);
+            ctx.strokeStyle = `rgba(${particleColor.r}, ${particleColor.g}, ${particleColor.b}, ${lineOpacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -121,13 +123,13 @@ export function DoodleParticles({
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [particleCount, connectionDistance, mouseRadius, handleMouseMove]);
+  }, [particleCount, connectionDistance, mouseRadius, handleMouseMove, isDark]);
 
   return (
     <canvas
       ref={canvasRef}
       className={`fixed top-0 left-0 w-full h-full pointer-events-none z-0 ${className}`}
-      style={{ mixBlendMode: 'screen', opacity: 0.6 }}
+      style={{ opacity: 1 }}
     />
   );
 }
