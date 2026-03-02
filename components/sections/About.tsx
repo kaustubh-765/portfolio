@@ -8,10 +8,10 @@ import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 
 const highlights = [
-  { icon: Briefcase, title: 'Experience', value: '2+ Years', description: 'Professional Development' },
-  { icon: Code, title: 'Projects', value: '15+', description: 'Completed Projects' },
+  { icon: Briefcase, title: 'Experience', value: '1+ Years', description: 'Professional Development' },
+  { icon: Code, title: 'Projects', value: '10+', description: 'Completed Projects' },
   { icon: GraduationCap, title: 'Education', value: 'B.Tech', description: 'Computer Science' },
-  { icon: Heart, title: 'Passion', value: '100%', description: 'Dedicated to Code' },
+  { icon: Heart, title: 'Passion', value: '100%', description: 'AI & Cloud Tech' },
 ];
 
 export function About() {
@@ -39,7 +39,7 @@ export function About() {
                 isDark ? 'text-gray-400' : 'text-gray-600'
               }`}>
                 <TypewriterText
-                  text="Hello! I&apos;m a passionate Associate Software Engineer with 2 years of hands-on experience in building modern web applications."
+                  text="Hello! I'm Kaustubh Mishra, an Associate Software Engineer passionate about building scalable cloud infrastructure and AI-powered solutions."
                   speed={20}
                   delay={200}
                 />
@@ -48,21 +48,20 @@ export function About() {
               <p className={`leading-relaxed mt-4 ${
                 isDark ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                My journey in software development started with a curiosity about how things work on the web. 
-                Today, I specialize in creating elegant, scalable solutions using cutting-edge technologies 
-                like React, Next.js, Node.js, and TypeScript.
+                I specialize in microservices architecture, Kubernetes orchestration, and AI orchestration using tools like Claude Code and Kilo Code. 
+                My experience spans from developing full-stack applications to architecting multi-region cloud solutions at E2E Networks.
               </p>
 
               <p className={`leading-relaxed mt-4 ${
                 isDark ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                I believe in writing clean, maintainable code and continuously learning new technologies. 
-                When I&apos;m not coding, you&apos;ll find me exploring new frameworks, contributing to open-source 
-                projects, or sharing knowledge with the developer community.
+                I'm passionate about reducing development cycles through strategic AI orchestration and automation. 
+                When I'm not coding, you'll find me exploring new AI frameworks, contributing to open-source projects, 
+                or hosting the CMLBDA Podcast where I discuss technology and innovation.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-4">
-                {['Problem Solver', 'Team Player', 'Quick Learner', 'Detail Oriented'].map((trait) => (
+                {['Problem Solver', 'Cloud Architect', 'AI Enthusiast', 'Open Source Contributor'].map((trait) => (
                   <span
                     key={trait}
                     className={`px-4 py-2 border rounded-full text-sm ${

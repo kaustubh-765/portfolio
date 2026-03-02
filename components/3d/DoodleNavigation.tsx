@@ -40,7 +40,7 @@ export function DoodleNavigation({ items, className = '' }: DoodleNavigationProp
           className={`text-xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}
         >
           <span className="relative">
-            JD
+            KM
             <svg
               ref={svgRef}
               className="absolute -bottom-1 left-0 w-full h-2"

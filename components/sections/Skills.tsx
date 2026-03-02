@@ -2,57 +2,57 @@
 
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '../animations/ScrollReveal';
-import { Code, Database, Terminal, Cloud } from 'lucide-react';
+import { Code, Database, Terminal, Cloud, Brain } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 
 const skillCategories = [
   {
     icon: Code,
-    title: 'Frontend Development',
+    title: 'Languages',
     color: 'from-blue-500 to-cyan-500',
     skills: [
-      { name: 'React', level: 90 },
-      { name: 'Next.js', level: 85 },
+      { name: 'Python', level: 95 },
+      { name: 'JavaScript', level: 90 },
       { name: 'TypeScript', level: 88 },
-      { name: 'Tailwind CSS', level: 92 },
-      { name: 'Vue.js', level: 70 },
+      { name: 'Java', level: 75 },
+      { name: 'SQL', level: 85 },
     ],
   },
   {
     icon: Database,
-    title: 'Backend Development',
+    title: 'Backend & Databases',
     color: 'from-purple-500 to-pink-500',
     skills: [
-      { name: 'Node.js', level: 85 },
-      { name: 'Python', level: 80 },
-      { name: 'Express.js', level: 82 },
-      { name: 'PostgreSQL', level: 78 },
-      { name: 'MongoDB', level: 75 },
+      { name: 'Django', level: 92 },
+      { name: 'FastAPI', level: 88 },
+      { name: 'Nest.js', level: 85 },
+      { name: 'PostgreSQL', level: 88 },
+      { name: 'Redis', level: 80 },
     ],
   },
   {
     icon: Cloud,
-    title: 'Cloud & DevOps',
+    title: 'Cloud & Infrastructure',
     color: 'from-orange-500 to-red-500',
     skills: [
-      { name: 'Docker', level: 75 },
-      { name: 'AWS', level: 70 },
-      { name: 'Git', level: 90 },
-      { name: 'CI/CD', level: 72 },
-      { name: 'Vercel', level: 88 },
+      { name: 'Kubernetes', level: 90 },
+      { name: 'Docker', level: 88 },
+      { name: 'AWS', level: 85 },
+      { name: 'Ansible', level: 82 },
+      { name: 'HAProxy', level: 80 },
     ],
   },
   {
-    icon: Terminal,
-    title: 'Tools & Technologies',
+    icon: Brain,
+    title: 'AI & Tools',
     color: 'from-green-500 to-teal-500',
     skills: [
-      { name: 'REST APIs', level: 88 },
-      { name: 'GraphQL', level: 70 },
-      { name: 'WebSockets', level: 65 },
-      { name: 'Redis', level: 60 },
-      { name: 'Linux', level: 75 },
+      { name: 'LangChain', level: 88 },
+      { name: 'OpenAI GPT', level: 90 },
+      { name: 'Claude Code', level: 92 },
+      { name: 'PyTorch', level: 75 },
+      { name: 'Rasa', level: 82 },
     ],
   },
 ];
@@ -157,7 +157,7 @@ export function Skills() {
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>Technologies I work with</p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Git', 'Tailwind'].map((tech) => (
+              {['Python', 'JavaScript', 'TypeScript', 'Django', 'FastAPI', 'Nest.js', 'React', 'Next.js', 'PostgreSQL', 'MongoDB', 'Redis', 'Kubernetes', 'Docker', 'AWS', 'Ansible', 'HAProxy', 'LangChain', 'OpenAI', 'Claude Code', 'Git'].map((tech) => (
                 <motion.span
                   key={tech}
                   className={`px-4 py-2 rounded-lg text-sm transition-all cursor-default border ${

@@ -2,45 +2,37 @@
 
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '../animations/ScrollReveal';
-import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with real-time inventory management, payment integration, and admin dashboard.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    stats: { stars: 45, forks: 12 },
+    title: 'WhatsApp Translator',
+    description: 'A browser extension that provides real-time translation for WhatsApp Web messages using AI-powered neural machine translation. Features seamless message translation with single-click activation, context-aware translation using conversation history, and outgoing message translation before sending.',
+    tech: ['React 18', 'TypeScript', 'Fastify', 'DeepL API', 'OpenAI GPT-4o-mini', 'Supabase', 'Docker'],
+    github: 'https://github.com/kaustubh-765/whatsapp-message-translator',
     featured: true,
   },
   {
-    title: 'AI Chat Application',
-    description: 'Intelligent chatbot powered by machine learning with natural language processing and context awareness.',
-    tech: ['Python', 'TensorFlow', 'FastAPI', 'React'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    stats: { stars: 32, forks: 8 },
+    title: 'TaskRunner - CLI Tool',
+    description: 'A lightweight CLI tool in Python that enables users to define, run, and monitor background tasks with automatic restart capabilities. Ensures workflows keep running reliably without manual intervention.',
+    tech: ['Python', 'subprocess', 'signal', 'filelock', 'argparse', 'CLI'],
+    github: 'https://github.com/kaustubh-765/threads-run-manager',
     featured: true,
   },
   {
-    title: 'Task Management Tool',
-    description: 'Collaborative project management platform with real-time updates, drag-and-drop interface, and team features.',
-    tech: ['Next.js', 'PostgreSQL', 'Prisma', 'Socket.io'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    stats: { stars: 28, forks: 6 },
+    title: 'JLox Interpreter',
+    description: 'An interpreter supporting dynamic typing, control flow, OOP features, garbage collection, and error handling using Java & Parsing Theory. Based on the "Crafting Interpreters" book by Bob Nystrom.',
+    tech: ['Java', 'Parsing', 'Scanning', 'OOP', 'AST', 'Lexing', 'Interpreting'],
+    github: 'https://github.com/kaustubh-765/Interpreter',
     featured: true,
   },
   {
-    title: 'Analytics Dashboard',
-    description: 'Data visualization platform with interactive charts, real-time data processing, and export capabilities.',
-    tech: ['React', 'D3.js', 'Express', 'MongoDB'],
+    title: 'Intent Classification',
+    description: 'Built a multi-class (60) multilingual (52 languages) LLM-based classifier using Transformers, HuggingFace, TensorFlow & PyTorch. Achieved 85% accuracy and F1 score of 80.05%.',
+    tech: ['Python', 'Transformers', 'HuggingFace', 'TensorFlow', 'PyTorch', 'Docker'],
     github: 'https://github.com',
-    live: 'https://example.com',
-    stats: { stars: 21, forks: 4 },
     featured: false,
   },
 ];
@@ -65,8 +57,8 @@ export function Projects() {
             <p className={`max-w-xl ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>
-              A selection of projects I&apos;ve built, showcasing my skills in full-stack development, 
-              UI/UX design, and problem-solving.
+              A selection of projects I&apos;ve built, showcasing my skills in AI integration, 
+              full-stack development, cloud infrastructure, and system design.
             </p>
           </ScrollReveal>
 
@@ -129,7 +121,7 @@ export function Projects() {
                     {project.title}
                   </h3>
                   
-                  <p className={`text-sm mb-4 line-clamp-2 ${
+                  <p className={`text-sm mb-4 line-clamp-3 ${
                     isDark ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     {project.description}
@@ -149,45 +141,25 @@ export function Projects() {
                     ))}
                   </div>
 
-                  {/* Stats & Links */}
+                  {/* Links */}
                   <div className={`flex items-center justify-between pt-4 border-t ${
                     isDark ? 'border-slate-700/50' : 'border-gray-200'
                   }`}>
-                    <div className={`flex items-center gap-4 text-sm ${
-                      isDark ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                      <span className="flex items-center gap-1">
-                        <Star size={14} /> {project.stats.stars}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <GitFork size={14} /> {project.stats.forks}
-                      </span>
-                    </div>
-                    
                     <div className="flex gap-3">
                       <motion.a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`p-2 transition-colors ${
-                          isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-slate-900'
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                          isDark 
+                            ? 'bg-slate-700 text-white hover:bg-blue-600' 
+                            : 'bg-gray-100 text-slate-700 hover:bg-blue-500 hover:text-white'
                         }`}
-                        whileHover={{ scale: 1.1 }}
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Github size={18} />
-                      </motion.a>
-                      <motion.a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`p-2 transition-colors ${
-                          isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-slate-900'
-                        }`}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink size={18} />
+                        <Github size={16} />
+                        View Code
                       </motion.a>
                     </div>
                   </div>
@@ -200,7 +172,7 @@ export function Projects() {
         <ScrollReveal delay={0.5}>
           <div className="text-center mt-12">
             <a
-              href="https://github.com"
+              href="https://github.com/kaustubh-765"
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-6 py-3 border rounded-lg transition-all ${
@@ -210,7 +182,7 @@ export function Projects() {
               }`}
             >
               <Github size={18} />
-              View All Projects
+              View All Projects on GitHub
             </a>
           </div>
         </ScrollReveal>

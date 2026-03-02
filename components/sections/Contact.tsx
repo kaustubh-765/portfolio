@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '../animations/ScrollReveal';
-import { Mail, Github, Linkedin, MapPin, Send, Loader2, CheckCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, Send, Loader2, CheckCircle, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 
@@ -14,6 +14,8 @@ export function Contact() {
   const { isDark } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent) => {
+    // Update the logic to send me an Email for people trying to contact me. For now, it just simulates a submission.
+    // Or fill the google form and submit the data there, and I can check it from there.
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -24,9 +26,10 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com', username: '@johndoe' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com', username: '/in/johndoe' },
-    { icon: Mail, label: 'Email', href: 'mailto:hello@johndoe.dev', username: 'hello@johndoe.dev' },
+    { icon: Github, label: 'GitHub', href: 'https://github.com/kaustubh-765', username: '@kaustubh-765' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/mishra-kaustubh765', username: '/in/mishra-kaustubh765' },
+    { icon: Mail, label: 'Email', href: 'mailto:kaustubhmishy@gmail.com', username: 'kaustubhmishy@gmail.com' },
+    { icon: Phone, label: 'Phone', href: 'tel:+919452911841', username: '+91 94529 11841' },
   ];
 
   return (
@@ -46,7 +49,7 @@ export function Contact() {
             isDark ? 'text-gray-400' : 'text-gray-600'
           }`}>
             I&apos;m always interested in hearing about new opportunities, collaborations, 
-            or just having a chat about technology. Feel free to reach out!
+            or just having a chat about technology, AI, and cloud infrastructure. Feel free to reach out!
           </p>
         </ScrollReveal>
 
@@ -172,7 +175,7 @@ export function Contact() {
                     }`}>Location</p>
                     <p className={`text-sm ${
                       isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>Bangalore, India</p>
+                    }`}>New Delhi / Jaipur, India</p>
                   </div>
                 </div>
                 
@@ -183,10 +186,25 @@ export function Contact() {
                       isDark ? 'text-white' : 'text-slate-900'
                     }`}>Email</p>
                     <a
-                      href="mailto:hello@johndoe.dev"
+                      href="mailto:kaustubhmishy@gmail.com"
                       className="text-sm text-blue-500 hover:text-blue-600 transition-colors"
                     >
-                      hello@johndoe.dev
+                      kaustubhmishy@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-blue-500 mt-0.5" />
+                  <div>
+                    <p className={`font-medium ${
+                      isDark ? 'text-white' : 'text-slate-900'
+                    }`}>Phone</p>
+                    <a
+                      href="tel:+919452911841"
+                      className="text-sm text-blue-500 hover:text-blue-600 transition-colors"
+                    >
+                      +91 94529 11841
                     </a>
                   </div>
                 </div>
@@ -240,8 +258,8 @@ export function Contact() {
               }`}>
                 <span className={`font-medium ${
                   isDark ? 'text-white' : 'text-slate-900'
-                }`}>Currently available</span> for
-                full-time opportunities and freelance projects.
+                }`}>Currently open</span> for
+                new opportunities in AI, Cloud Infrastructure, and Full-Stack Development.
               </p>
             </div>
           </ScrollReveal>

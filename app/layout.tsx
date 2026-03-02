@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe | Associate Software Engineer",
-  description: "Full-stack developer with 2 years of experience creating scalable web applications and crafting elegant solutions to complex problems.",
-  keywords: ["Software Engineer", "Full Stack Developer", "React", "Next.js", "TypeScript", "Portfolio"],
-  authors: [{ name: "John Doe" }],
+  title: "Kaustubh Mishra | Associate Software Engineer",
+  description: "Associate Software Engineer specializing in AI orchestration, cloud infrastructure, and microservices. Reducing development cycles by 10x using Claude Code, Kilo Code, and strategic automation.",
+  keywords: ["Software Engineer", "AI Orchestration", "Cloud Infrastructure", "Kubernetes", "Python", "Django", "React", "Portfolio"],
+  authors: [{ name: "Kaustubh Mishra" }],
   openGraph: {
-    title: "John Doe | Associate Software Engineer",
-    description: "Full-stack developer with 2 years of experience creating scalable web applications.",
+    title: "Kaustubh Mishra | Associate Software Engineer",
+    description: "Associate Software Engineer at E2E Networks. Expert in AI orchestration, cloud infrastructure, and microservices architecture.",
     type: "website",
   },
 };

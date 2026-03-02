@@ -29,12 +29,12 @@ export function Hero() {
             isDark ? 'text-white' : 'text-slate-900'
           }`}>
             <TextAnimator
-              text="Building amazing"
+              text="Kaustubh"
               className="block"
               delay={0.2}
             />
             <TextAnimator
-              text="digital experiences"
+              text="Mishra"
               className="block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
               delay={0.4}
             />
@@ -44,8 +44,8 @@ export function Hero() {
             <p className={`text-lg md:text-xl mb-8 max-w-xl ${
               isDark ? 'text-gray-400' : 'text-gray-600'
             }`}>
-              Full-stack developer with 2 years of experience creating scalable web 
-              applications and crafting elegant solutions to complex problems.
+              Reducing Development Cycles by 10x using Strategic AI Orchestration. 
+              Specializing in cloud infrastructure, microservices, and AI-powered solutions.
             </p>
           </ScrollReveal>
 
@@ -74,9 +74,9 @@ export function Hero() {
           <ScrollReveal delay={1}>
             <div className="flex gap-4 justify-center lg:justify-start">
               {[
-                { icon: Github, href: 'https://github.com', label: 'GitHub' },
-                { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+                { icon: Github, href: 'https://github.com/kaustubh-765', label: 'GitHub' },
+                { icon: Linkedin, href: 'https://linkedin.com/in/mishra-kaustubh765', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:kaustubhmishy@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

@@ -99,7 +99,7 @@ export default function Portfolio() {
       }`}>
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-            © {new Date().getFullYear()} John Doe. All rights reserved.
+            © {new Date().getFullYear()} Kaustubh Mishra. All rights reserved.
           </p>
           <p className={`text-xs mt-2 ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>
             Built with Next.js, Three.js & Framer Motion
